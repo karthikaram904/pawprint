@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawPrint Memories - Dashboard</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+                        <a href="./index.html">
+                            <img src="img/pawprint-white.png" alt="">
+                        </a>
+                    </div>
+
+        <ul>
+            <li><a href="dashboard.html"><i class="fa fa-home"></i> Dashboard</a></li>
+            <li><a href="books.html"><i class="fa fa-calendar"></i> Book Session</a></li>
+            <li><a href="photos.html"><i class="fa fa-image"></i> My Photos</a></li>
+            <li><a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="downloads.html"><i class="fa fa-download"></i> Downloads</a></li>
+            <li><a href="profile.html"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="logout.html"><i class="fa fa-user"></i> Log Out</a></li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <!-- Topbar -->
+        <div class="topbar">
+            <button id="menu-btn"><i class="fa fa-bars"></i></button>
+            <h2>Orders Dashboard 🐾</h2>
+        </div>
+
+       <div class="orders-page">
+
+    <!-- Header -->
+    <div class="page-header">
+        <h2>My Orders 🛒</h2>
+        <p>Track your photo prints, albums, and orders</p>
+    </div>
+
+    <!-- Orders List -->
+    <div class="orders-list">
+
+        <!-- Order Item -->
+        <div class="order-card">
+            <div class="order-top">
+                <div>
+                    <h4>Order #1023</h4>
+                    <p>Photo Album + 10 Prints</p>
+                </div>
+                <span class="status processing">Processing</span>
+            </div>
+
+            <!-- Timeline -->
+            <div class="order-timeline">
+                <div class="step active">Order Placed</div>
+                <div class="step active">Processing</div>
+                <div class="step">Shipped</div>
+                <div class="step">Delivered</div>
+            </div>
+
+            <!-- Actions -->
+            <div class="order-actions">
+                <button>View Details</button>
+                <button class="secondary">Download Invoice</button>
+            </div>
+        </div>
+
+        <!-- Order Item -->
+        <div class="order-card">
+            <div class="order-top">
+                <div>
+                    <h4>Order #1018</h4>
+                    <p>Canvas Print</p>
+                </div>
+                <span class="status delivered">Delivered</span>
+            </div>
+
+            <!-- Timeline -->
+            <div class="order-timeline">
+                <div class="step active">Order Placed</div>
+                <div class="step active">Processing</div>
+                <div class="step active">Shipped</div>
+                <div class="step active">Delivered</div>
+            </div>
+
+            <!-- Actions -->
+            <div class="order-actions">
+                <button>View Details</button>
+                <button class="secondary">Download Invoice</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+</div>
+
+<script>
+    const btn = document.getElementById("menu-btn");
+    const sidebar = document.getElementById("sidebar");
+
+    // Toggle open
+    btn.onclick = (e) => {
+        e.stopPropagation(); // prevent immediate close
+        sidebar.classList.toggle("active");
+    };
+
+    // Click outside → close
+    document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && !btn.contains(e.target)) {
+            sidebar.classList.remove("active");
+        }
+    });
+</script>
+</body>
+</html>

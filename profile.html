@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawPrint Memories - Dashboard</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+                        <a href="./index.html">
+                            <img src="img/pawprint-white.png" alt="">
+                        </a>
+                    </div>
+
+        <ul>
+            <li><a href="dashboard.html"><i class="fa fa-home"></i> Dashboard</a></li>
+            <li><a href="books.html"><i class="fa fa-calendar"></i> Book Session</a></li>
+            <li><a href="photos.html"><i class="fa fa-image"></i> My Photos</a></li>
+            <li><a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="downloads.html"><i class="fa fa-download"></i> Downloads</a></li>
+            <li><a href="profile.html"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="logout.html"><i class="fa fa-user"></i> Log Out</a></li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <!-- Topbar -->
+        <div class="topbar">
+            <button id="menu-btn"><i class="fa fa-bars"></i></button>
+            <h2>Profile Page 🐾</h2>
+        </div>
+
+        <div class="profile-page">
+
+    <!-- Header -->
+    <div class="page-header">
+        <h2>My Profile 👤</h2>
+        <p>Manage your personal and pet details</p>
+    </div>
+
+    <div class="profile-wrapper">
+
+        <!-- Profile Card -->
+        <div class="profile-card">
+
+            <div class="profile-top">
+                <img src="img/portfolio/pf-8.jpg" alt="">
+                <h4>James</h4>
+                <p>Pet Owner</p>
+            </div>
+
+            <div class="profile-info">
+                <div class="info-item">
+                    <label>Email</label>
+                    <p>sample@email.com</p>
+                </div>
+
+                <div class="info-item">
+                    <label>Phone</label>
+                    <p>+91 9876543210</p>
+                </div>
+
+                <div class="info-item">
+                    <label>Location</label>
+                    <p>Chennai, India</p>
+                </div>
+            </div>
+
+            <button class="edit-btn">Edit Profile</button>
+
+        </div>
+
+        <!-- Pet Details -->
+        <div class="pet-card">
+
+            <h3>My Pets 🐾</h3>
+
+            <div class="pet-item">
+                <img src="img/portfolio/fea-img2.jpg" alt="">
+                <div>
+                    <h5>Bruno</h5>
+                    <p>Golden Retriever • 2 Years</p>
+                </div>
+            </div>
+
+            <div class="pet-item">
+                <img src="img/portfolio/fea-img4.jpg" alt="">
+                <div>
+                    <h5>Luna</h5>
+                    <p>Persian Cat • 1 Year</p>
+                </div>
+            </div>
+
+            <button class="add-pet-btn">+ Add Pet</button>
+
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+</div>
+
+<script>
+    const btn = document.getElementById("menu-btn");
+    const sidebar = document.getElementById("sidebar");
+
+    // Toggle open
+    btn.onclick = (e) => {
+        e.stopPropagation(); // prevent immediate close
+        sidebar.classList.toggle("active");
+    };
+
+    // Click outside → close
+    document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && !btn.contains(e.target)) {
+            sidebar.classList.remove("active");
+        }
+    });
+</script>
+</body>
+</html>

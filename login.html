@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+<title>Login</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+     font-family: "Quantico", sans-serif;
+    background:#f5f5f5;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* LOGIN BOX */
+.login-box{
+    width:100%;
+    max-width:400px;
+    background:#fff;
+    padding:40px 30px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* LOGO */
+.login-logo img{
+    width:120px;
+    margin-bottom:20px;
+}
+
+/* TITLE */
+.login-box p{
+    margin-bottom:20px;
+}
+.login-box h2
+{
+     font-family: "Quantico", sans-serif;
+    font-weight: 700;
+  line-height: 1.2;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+/* INPUT */
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    outline:none;
+    font-size:15px;
+}
+
+/* PASSWORD WRAP */
+.password-box{
+    position:relative;
+}
+
+.password-box i{
+    position:absolute;
+    right:12px;
+    top:35%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#888;
+}
+
+/* REMEMBER + FORGOT */
+.form-options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.form-options label{
+     display:flex;
+    align-items:center;
+    gap:8px;
+    white-space:nowrap;
+}
+
+.form-options a{
+    text-decoration:none;
+    color:#009603;
+}
+
+/* BUTTON */
+.login-box button{
+    width:100%;
+    padding:12px;
+    background:#009603;
+    border:none;
+    border-radius:6px;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+.form-options input[type="checkbox"]
+    {
+    width:16px;
+    height:16px;
+    cursor:pointer;
+    margin: 0px;
+    }
+
+.login-box button:hover{
+    background:#000;
+}
+
+/* SOCIAL */
+.social-login{
+    margin-top:20px;
+}
+
+.social-login p{
+    margin-bottom:12px;
+    color:#777;
+}
+
+.social-icons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+
+}
+
+.social-btn{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    color:#fff;
+    text-decoration: none;
+}
+
+/* COLORS */
+.facebook{background:#1877f2;}
+.google{background:#db4437;}
+.twitter{background:#1da1f2;}
+.apple{background:#000;}
+
+/* HOVER */
+.facebook:hover{
+    background:#fff;
+    color:#1877f2;
+    transform:scale(1.1);
+}
+
+.google:hover{
+    background:#fff;
+    color:#db4437;
+    transform:scale(1.1);
+}
+
+.twitter:hover{
+    background:#fff;
+    color:#1da1f2;
+    transform:scale(1.1);
+}
+
+.apple:hover{
+    background:#fff;
+    color:#000;
+    transform:scale(1.1);
+}
+
+/* REGISTER */
+.register-link{
+    margin-top:20px;
+}
+
+.register-link a{
+    color:#009603;
+    text-decoration:none;
+}
+
+/* MOBILE */
+@media(max-width:480px){
+    .login-box{
+        margin:20px;
+        padding:30px 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="login-logo">
+                        <a href="./index.html">
+                            <img src="img/pawprint-logo.png" alt="">
+                        </a>
+                    </div>
+
+    <h2>Login</h2>
+    <p>Welcome to the Show</p>
+
+    <form>
+        <input type="email" placeholder="Email Address" required>
+
+        <!-- PASSWORD -->
+        <div class="password-box">
+            <input type="password" id="password" placeholder="Password" required>
+            <i class="fa-solid fa-eye" id="togglePassword"></i>
+        </div>
+
+        <!-- OPTIONS -->
+        <div class="form-options">
+            <label>
+                <input type="checkbox"> Remember Me
+            </label>
+
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- SOCIAL -->
+    <div class="social-login">
+        <p>Or sign in using</p>
+
+        <div class="social-icons">
+            <a href="#" class="social-btn facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+
+            <a href="#" class="social-btn google">
+                <i class="fa-brands fa-google"></i>
+            </a>
+
+            <a href="#" class="social-btn twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+
+            <a href="#" class="social-btn apple">
+                <i class="fa-brands fa-apple"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="register-link">
+        Don’t have an account? <a href="register.html">Register</a>
+    </div>
+
+</div>
+
+<!-- PASSWORD TOGGLE SCRIPT -->
+<script>
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+
+togglePassword.addEventListener('click', function () {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+
+    this.classList.toggle('fa-eye-slash');
+});
+</script>
+
+</body>
+</html>

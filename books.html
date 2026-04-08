@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawPrint Memories - Dashboard</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+                        <a href="./index.html">
+                            <img src="img/pawprint-white.png" alt="">
+                        </a>
+                    </div>
+
+        <ul>
+            <li><a href="dashboard.html"><i class="fa fa-home"></i> Dashboard</a></li>
+            <li><a href="books.html"><i class="fa fa-calendar"></i> Book Session</a></li>
+            <li><a href="photos.html"><i class="fa fa-image"></i> My Photos</a></li>
+            <li><a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="downloads.html"><i class="fa fa-download"></i> Downloads</a></li>
+            <li><a href="profile.html"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="logout.html"><i class="fa fa-user"></i> Log Out</a></li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <!-- Topbar -->
+        <div class="topbar">
+            <button id="menu-btn"><i class="fa fa-bars"></i></button>
+            <h2>Booking Dashboard 🐾</h2>
+        </div>
+        <div class="booking-page">
+
+    <!-- Title -->
+    <div class="page-header">
+        <h2>Book a Session 🐾</h2>
+        <p>Schedule a professional photoshoot for your beloved pet</p>
+    </div>
+
+    <!-- Form -->
+    <div class="booking-form">
+
+        <div class="form-group">
+            <label>Pet Name</label>
+            <input type="text" placeholder="Enter your pet name">
+        </div>
+
+        <div class="form-group">
+            <label>Pet Type</label>
+            <select>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Bird</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Session Type</label>
+            <select>
+                <option>Studio Session</option>
+                <option>Outdoor Session</option>
+                <option>Home Session</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Select Date</label>
+            <input type="date">
+        </div>
+
+        <div class="form-group">
+            <label>Select Time</label>
+            <input type="time">
+        </div>
+
+        <div class="form-group">
+            <label>Location (if outdoor)</label>
+            <input type="text" placeholder="Enter preferred location">
+        </div>
+
+        <div class="form-group">
+            <label>Additional Notes</label>
+            <textarea placeholder="Tell us about your pet behavior, preferences, etc."></textarea>
+        </div>
+
+        <button class="book-btn">Confirm Booking</button>
+
+    </div>
+
+</div>
+    </div>
+
+</div>
+
+<script>
+    const btn = document.getElementById("menu-btn");
+    const sidebar = document.getElementById("sidebar");
+
+    // Toggle open
+    btn.onclick = (e) => {
+        e.stopPropagation(); // prevent immediate close
+        sidebar.classList.toggle("active");
+    };
+
+    // Click outside → close
+    document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && !btn.contains(e.target)) {
+            sidebar.classList.remove("active");
+        }
+    });
+</script>
+</body>
+</html>

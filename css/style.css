@@ -1086,10 +1086,7 @@ body.rtl {
   direction: rtl;
   text-align: right;
 }
-.rtl .hs-item .hs-text p,.rtl .hs-slider.owl-carousel .owl-item.active .hs-text p,.rtl .hs-item .hs-text h2,.rtl .hs-slider.owl-carousel .owl-item.active .hs-text h2
-{
-direction: rtl !important;
-}
+
 /* Example fixes */
 body.rtl nav ul {
   flex-direction: row-reverse;

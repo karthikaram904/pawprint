@@ -14,10 +14,7 @@
     /*------------------
         Preloader
     --------------------*/
-    $(window).on('load', function () {
-        $(".loader").fadeOut();
-        $("#preloder").delay(200).fadeOut("slow");
-    });
+    
 
     /*------------------
         Background Set
@@ -139,70 +136,7 @@
     });
 
 })(jQuery);
-
-const toggleBtn = document.getElementById("rtl-toggle");
-
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("rtl");
-
-    // Save preference
-    if (document.body.classList.contains("rtl")) {
-      localStorage.setItem("layoutDirection", "rtl");
-    } else {
-      localStorage.setItem("layoutDirection", "ltr");
-    }
-  });
-
-  // Load saved preference
-  window.addEventListener("load", () => {
-    const direction = localStorage.getItem("layoutDirection");
-    if (direction === "rtl") {
-      document.body.classList.add("rtl");
-    }
-  });
-
-  const themeBtn = document.getElementById("theme-toggle");
-
-  function setTheme(theme) {
-    if (theme === "dark") {
-      document.body.classList.add("dark");
-      themeBtn.textContent = "☀️";
-    } else {
-      document.body.classList.remove("dark");
-      themeBtn.textContent = "🌙";
-    }
-    localStorage.setItem("theme", theme);
-  }
-
-  themeBtn.addEventListener("click", () => {
-    const isDark = document.body.classList.contains("dark");
-    setTheme(isDark ? "light" : "dark");
-  });
-
-  // Load saved theme
-  window.addEventListener("load", () => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setTheme(savedTheme);
-  });
-
-
-
-const btn = document.getElementById("rtl-toggle");
-  const icon = document.getElementById("rtl-icon");
-
-  btn.addEventListener("click", () => {
-    const html = document.documentElement;
-
-    if (html.dir === "rtl") {
-      html.dir = "ltr";
-      icon.textContent = "LTR";
-    } else {
-      html.dir = "rtl";
-      icon.textContent = "RTL";
-    }
-  });
-
-    const scrollBtn = document.getElementById("scrollTopBtn");
+const scrollBtn = document.getElementById("scrollTopBtn");
 
     // Show button on scroll
     window.onscroll = function () {
@@ -220,3 +154,71 @@ const btn = document.getElementById("rtl-toggle");
             behavior: "smooth"
         });
     };
+
+
+
+// RTL Toggle (Desktop + Mobile)
+// RTL Toggle
+document.addEventListener("click", function(e) {
+  if (e.target.closest(".rtl-btn")) {
+    let isRTL = document.body.classList.toggle("rtl");
+
+    // Save
+    localStorage.setItem("layoutDirection", isRTL ? "rtl" : "ltr");
+
+    // Update ALL buttons (desktop + mobile)
+    document.querySelectorAll(".rtl-btn span").forEach(el => {
+      el.innerText = isRTL ? "RTL" : "LTR";
+    });
+  }
+});
+
+// Load RTL
+window.addEventListener("load", () => {
+  const direction = localStorage.getItem("layoutDirection");
+
+  if (direction === "rtl") {
+    document.body.classList.add("rtl");
+  }
+
+  // Set correct text on load
+  document.querySelectorAll(".rtl-btn span").forEach(el => {
+    el.innerText = direction === "rtl" ? "RTL" : "LTR";
+  });
+});
+
+
+
+// Dark Mode
+function setTheme(theme) {
+  const buttons = document.querySelectorAll(".theme-btn");
+
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+    buttons.forEach(btn => btn.textContent = "☀️");
+  } else {
+    document.body.classList.remove("dark");
+    buttons.forEach(btn => btn.textContent = "🌙");
+  }
+
+  localStorage.setItem("theme", theme);
+}
+
+// Toggle (Desktop + Mobile)
+document.addEventListener("click", function(e) {
+  if (e.target.closest(".theme-btn")) {
+    const isDark = document.body.classList.contains("dark");
+    setTheme(isDark ? "light" : "dark");
+  }
+});
+
+// Load Theme
+window.addEventListener("load", () => {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  setTheme(savedTheme);
+});
+
+
+
+
+    

@@ -134,7 +134,9 @@ body {
     .sidebar {
         left: -260px;
     }
-
+.step {
+  flex: 1 1 40px !important;
+}
     .sidebar.active {
         left: 0;
     }
@@ -852,3 +854,52 @@ body {
     left: 0;
     z-index: 999;
   }
+  .sidebar ul li:last-child {
+  background: red;
+}
+.sidebar ul li:last-child a
+{
+    color: #fff;
+}
+.order-timeline {
+    margin-top: 30px;
+}
+
+/* Step circle */
+.step {
+    position: relative;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.step::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #444;
+    display: block;
+    margin: 0 auto 5px;
+    border-radius: 50%;
+}
+
+/* Active step */
+.step.active {
+    color: #00c853;
+}
+
+.step.active::before {
+    background: #00c853;
+}
+
+/* Line */
+.line {
+    flex: 1;
+    height: 2px;
+    background: #444;
+    margin: 0 10px;
+}
+
+.line.active {
+    background: #00c853;
+}

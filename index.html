@@ -50,21 +50,10 @@
                             <li><a href="./portfolio.html">Portfolio</a></li>
                             <li><a href="./blog.html">Blog</a></li>
                             <li><a href="./contact.html">Contact</a></li>
-                            <li><a href="./dashboard.html">Dashboard</a></li>
                             <li class="btn-header">
-    <button id="theme-toggle" class="theme-btn">🌙</button>
-</li>
-
-<li class="btn-header">
-    <button id="rtl-toggle" class="rtl-btn">
-        <span id="rtl-icon">LTR</span>
-    </button>
-</li>
-
-<li class="reg-btn">
-    <a href="register.html" class="primary-btn">Register Now</a>
-</li>
-                 
+                                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">&#x1F319;</button>
+                                <button id="rtl-toggle" class="rtl-btn" aria-label="Toggle RTL"><span id="rtl-icon">LTR</span></button>
+                            </li>
                         </ul>
                     </nav>
                     
@@ -112,6 +101,52 @@
     </div>
 </section>
 <!-- Hero Section End -->
+
+    <!-- About Section Begin -->
+<section class="home1-about spad">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 reveal-left">
+                <div class="home1-about-img">
+                    <img src="img/blog/gallery10.jpg" alt="About PawPrint">
+                </div>
+            </div>
+
+            <div class="col-lg-6 reveal-right">
+                <div class="home1-about-text">
+                    <div class="section-title">
+                        <h2>About PawPrint Memories</h2>
+                    </div>
+                    <p>We are passionate pet photographers dedicated to capturing the unique personality and precious moments of your beloved companions. Every session is crafted with patience, creativity, and a deep love for animals.</p>
+                    <p>From playful outdoor shoots to elegant studio portraits, we ensure your pet feels comfortable and happy — resulting in genuine, heartwarming photographs you will treasure forever.</p>
+                    <div class="home1-about-features">
+                        <div class="hab-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>5+ Years of Experience</span>
+                        </div>
+                        <div class="hab-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>500+ Happy Pet Clients</span>
+                        </div>
+                        <div class="hab-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Indoor & Outdoor Sessions</span>
+                        </div>
+                        <div class="hab-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Professional Grade Editing</span>
+                        </div>
+                    </div>
+                    <a href="./about.html" class="primary-btn home1-about-btn">Know More</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- About Section End -->
+
     <!-- Services Section Begin -->
 <section class="services-section spad">
     <div class="container">
@@ -232,7 +267,7 @@
 
             <!-- Item 1 -->
             <div class="col-lg-3 col-md-6">
-                <div class="why-item">
+                <div class="why-item" data-num="01">
                     <div class="icon"><i class="fa fa-camera"></i></div>
                     <h5>Expert Photography</h5>
                     <p>Professional techniques ensure every pet is captured beautifully with natural.</p>
@@ -241,7 +276,7 @@
 
             <!-- Item 2 -->
             <div class="col-lg-3 col-md-6">
-                <div class="why-item">
+                <div class="why-item" data-num="02">
                     <div class="icon"><i class="fa fa-heart"></i></div>
                     <h5>Pet Friendly Approach</h5>
                     <p>We create a calm and fun environment so your pets feel relaxed and happy.</p>
@@ -250,7 +285,7 @@
 
             <!-- Item 3 -->
             <div class="col-lg-3 col-md-6">
-                <div class="why-item">
+                <div class="why-item" data-num="03">
                     <div class="icon"><i class="fa fa-star"></i></div>
                     <h5>High Quality Output</h5>
                     <p>Every image is professionally edited to deliver vibrant and premium-quality.</p>
@@ -259,7 +294,7 @@
 
             <!-- Item 4 -->
             <div class="col-lg-3 col-md-6">
-                <div class="why-item">
+                <div class="why-item" data-num="04">
                     <div class="icon"><i class="fa fa-clock-o"></i></div>
                     <h5>Flexible Booking</h5>
                     <p>Easy scheduling options that suit your time and make your experience.</p>
@@ -508,6 +543,32 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        var aboutObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    aboutObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.home1-about .reveal-left, .home1-about .reveal-right').forEach(function(el) {
+            aboutObserver.observe(el);
+        });
+    </script>
+    <script>
+        (function() {
+            var btn = document.querySelector('.rtl-btn');
+            if (!btn) return;
+            btn.addEventListener('click', function() {
+                var isRTL = document.body.classList.contains('rtl');
+                document.documentElement.style.overflowX = isRTL ? 'hidden' : '';
+            });
+            if (document.body.classList.contains('rtl')) {
+                document.documentElement.style.overflowX = 'hidden';
+            }
+        })();
+    </script>
 </body>
 
 </html>

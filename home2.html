@@ -37,7 +37,7 @@
                     </div>
                     <nav class="nav-menu mobile-menu">
                         <ul>
-                            <li><a href="#">Home<i class="fa fa-angle-down"></i></a>
+                            <li class="active"><a href="#">Home<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown">
                                     <li><a href="./index.html">Home1</a></li>
                                     <li class="active"><a href="./home2.html">Home2</a></li>
@@ -49,15 +49,9 @@
                             <li><a href="./portfolio.html">Portfolio</a></li>
                             <li><a href="./blog.html">Blog</a></li>
                             <li><a href="./contact.html">Contact</a></li>
-                            <li><a href="./dashboard.html">Dashboard</a></li>
                             <li class="btn-header">
-                                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-  🌙
-</button>
-<button id="rtl-toggle" class="rtl-btn" aria-label="Toggle RTL">
-  <span id="rtl-icon">LTR</span>
-</button></li>
-                 <li class="reg-btn">   <a href="register.html" class="primary-btn">Register Now</a>
+                                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">&#x1F319;</button>
+                                <button id="rtl-toggle" class="rtl-btn" aria-label="Toggle RTL"><span id="rtl-icon">LTR</span></button>
                             </li>
                         </ul>
                     </nav>
@@ -596,6 +590,19 @@ Let us turn your pet’s everyday moments into timeless memories filled with lov
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        (function() {
+            var btn = document.querySelector('.rtl-btn');
+            if (!btn) return;
+            btn.addEventListener('click', function() {
+                var isRTL = document.body.classList.contains('rtl');
+                document.documentElement.style.overflowX = isRTL ? 'hidden' : '';
+            });
+            if (document.body.classList.contains('rtl')) {
+                document.documentElement.style.overflowX = 'hidden';
+            }
+        })();
+    </script>
 </body>
 
 </html>

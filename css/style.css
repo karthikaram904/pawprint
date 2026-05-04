@@ -779,7 +779,7 @@ ol {
 
 .portfolio-filter .pf-item .pf-text span {
 	font-size: 15px;
-	color: #009603;
+	color: #fff;
 	position: relative;
 	top: 40px;
 	-webkit-transition: all 0.6s;
@@ -1082,6 +1082,12 @@ ol {
 body.rtl {
   direction: rtl;
   text-align: right;
+  overflow-x: hidden;
+}
+
+/* Prevent html-level horizontal scroll in RTL */
+html:has(body.rtl) {
+  overflow-x: hidden;
 }
 
 /* Example fixes */
@@ -1128,7 +1134,71 @@ body.dark .theme-btn {
   color: #ffffff;
 }
 
+/* Green buttons in dark mode */
+body.dark .primary-btn,
+body.dark .site-btn {
+  background: #009603 !important;
+  color: #fff !important;
+}
+
+body.dark .primary-btn:hover,
+body.dark .site-btn:hover {
+  background: #007a02 !important;
+}
+
+body.dark .secondary-btn {
+  border-color: #009603 !important;
+  color: #009603 !important;
+  background: transparent !important;
+}
+
+body.dark .secondary-btn:hover {
+  background: #009603 !important;
+  color: #fff !important;
+}
+
 /*dark*/
+
+/* ── Dark Mode Depth System ────────────────────────────────────────
+   Level 0 · body          #0b1220   (base)
+   Level 1 · sections      #111d2f   (alternating panels)
+   Level 2 · cards         #1a2840   (containers / cards)
+   Level 3 · elevated      #232f47   (hover / inputs)
+   Border                  rgba(255,255,255,0.07)
+──────────────────────────────────────────────────────────────────── */
+
+/* Section-level backgrounds */
+body.dark .services-section,
+body.dark .team-section,
+body.dark .categories-section,
+body.dark .portfolio-section,
+body.dark .blog-section,
+body.dark .rp-section,
+body.dark .services-option,
+body.dark .pricing-section,
+body.dark .home2-featured {
+  background: #111d2f;
+}
+
+/* Card / container backgrounds */
+body.dark .services-item,
+body.dark .process-box,
+body.dark .team-item,
+body.dark .rp-item,
+body.dark .cs-item,
+body.dark .why-item,
+body.dark .mvv-item,
+body.dark .pricing-item,
+body.dark .about-text,
+body.dark .home2-hero-text.hero-box,
+body.dark .featured-projects .featured-text,
+body.dark .blog-item,
+body.dark .blog-details-text,
+body.dark .blog-pagination a {
+  background: #1a2840 !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
+}
 
 /*---------------------
   Team Section
@@ -1318,6 +1388,146 @@ body.dark .theme-btn {
 .so-item p {
 	color: #666666;
 	margin-bottom: 0;
+}
+
+/*---------------------
+  FAQ Accordion
+-----------------------*/
+
+.faq-section {
+	padding: 70px 0 80px;
+	background: #f9f9f9;
+}
+
+.faq-section .section-title {
+	margin-bottom: 40px;
+}
+
+.faq-accordion {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.faq-item {
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	overflow: hidden;
+	background: #fff;
+}
+
+.faq-question {
+	display: flex;
+	align-items: center;
+	padding: 16px 22px;
+	cursor: pointer;
+	background: #fff;
+	transition: background 0.25s;
+	gap: 16px;
+}
+
+.faq-question:hover {
+	background: #f4fdf4;
+}
+
+.faq-question.active {
+	background: #009603;
+}
+
+.faq-question.active h5 {
+	color: #fff;
+}
+
+.faq-question.active .faq-number {
+	background: #fff;
+	color: #009603 !important;
+}
+
+.faq-question.active .faq-icon {
+	color: #fff;
+	transform: rotate(45deg);
+}
+
+.faq-number {
+	flex-shrink: 0;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	border-radius: 50%;
+	background: #009603;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.faq-question h5 {
+	flex: 1;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #111;
+	text-transform: none;
+	line-height: 1.4;
+}
+
+.faq-icon {
+	flex-shrink: 0;
+	font-size: 14px;
+	color: #009603;
+	transition: transform 0.3s;
+}
+
+.faq-answer {
+	display: none;
+	padding: 16px 22px 20px 72px;
+	border-top: 1px solid #e8e8e8;
+}
+
+.faq-answer p {
+	color: #666;
+	margin: 0;
+	line-height: 1.75;
+}
+
+/* FAQ Accordion — Dark Mode */
+body.dark .faq-section {
+	background: #111d2f;
+}
+
+body.dark .faq-item {
+	background: #1a2840;
+	border-color: rgba(255,255,255,0.07);
+	box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+
+body.dark .faq-question {
+	background: #1a2840;
+}
+
+body.dark .faq-question:hover {
+	background: #232f47;
+}
+
+body.dark .faq-question h5 {
+	color: #dce6f0;
+}
+
+body.dark .faq-question.active {
+	background: #009603;
+}
+
+body.dark .faq-question.active h5 {
+	color: #fff;
+}
+
+body.dark .faq-answer {
+	background: #1a2840;
+	border-top-color: rgba(255,255,255,0.07);
+}
+
+body.dark .faq-answer p {
+	color: #9ab0c8;
 }
 
 /*---------------------
@@ -3110,14 +3320,14 @@ body.dark .theme-btn {
 }
 .dark .services-item,.dark .cs-item .cs-text
 {
-	background: #000;
+	background: #1a2840;
 }
 .dark .services-item h3,.dark .services-item p,.dark .categories-section h2,.dark .categories-section p,.dark .cs-item .cs-text h4,.dark .cs-item .cs-text span,.dark .portfolio-section .section-title h2,.dark .filter-controls ul li,.dark .nav-menu ul li a
 {
 	color: #fff;
 }
 .dark .filter-controls .active {
-  color: #009603 !important;
+  color: #fff !important;
 }
 .nav-menu a i {
   font-size: 20px;
@@ -3666,10 +3876,15 @@ body.dark .theme-btn {
 }
 
 .secondary-btn {
+    display: inline-block;
     margin-left: 10px;
-    padding: 10px 20px;
-    border: 1px solid #009603;
+    padding: 14px 30px;
+    border: 2px solid #009603;
     color: #009603;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Quantico", sans-serif;
+    text-transform: uppercase;
     text-decoration: none;
     transition: 0.3s;
 }
@@ -3837,7 +4052,7 @@ body.dark .theme-btn {
     background: #fff;
     padding: 30px 20px;
     border-radius: 10px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.08);
     z-index: 1;
     transition: 0.3s;
 }
@@ -3980,6 +4195,17 @@ body.dark .theme-btn {
 .home2-price-box ul li {
     margin-bottom: 10px;
     font-size: 14px;
+}
+
+/* Dark mode: price box */
+body.dark .home2-price-box {
+    background: #1a2840;
+    border-color: rgba(255,255,255,0.07);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+body.dark .home2-price-box:hover {
+    border-color: #009603;
 }
 
 /* Button */
@@ -4132,7 +4358,7 @@ body.dark .theme-btn {
 }
 .dark .home2-hero-text.hero-box,.dark .process-box,.dark .about-text,.dark .mvv-item,.dark .team-item .ti-text,.dark .why-item,.dark .featured-projects .featured-text,.dark .rp-item .rp-text,.dark .blog-pagination a,.dark .blog-details-text
 {
-	background: #000;
+	background: #1a2840;
 }
 .dark h1,.dark p,.dark span,.dark h2,.dark h5,.dark h4,.dark li,.dark a,.dark h6,.dark h3
 {
@@ -4140,7 +4366,7 @@ color: #fff !important;
 }
 .dark .mvv-section,.dark .why-section
 {
-	background:#0B1220;
+	background: #111d2f;
 }
 .rtl .fs-widget .fw-subscribe form input
 {
@@ -4148,7 +4374,8 @@ color: #fff !important;
 }
 .dark .blog-details-text .bd-author,.dark .blog-details-text .bd-tag-share .tags a
 {
-	background: #0f0e0e !important;
+	background: #1a2840 !important;
+	border: 1px solid rgba(255,255,255,0.07) !important;
 }
 .rtl .blog-details-text .bd-comment-form .leave-form form input,.rtl .blog-sidebar .bs-item .bi-subscribe form input,.rtl .contact-form form input,.rtl .contact-form form textarea
 {
@@ -4170,9 +4397,9 @@ color: #fff !important;
 /* INPUT & TEXTAREA */
 .dark .contact-form input,
 .dark .contact-form textarea,.dark .bi-subscribe input {
-    background: #2a2a2a !important;
+    background: #232f47 !important;
     color: #fff !important;
-    border: 1px solid #444 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
 }
 
 /* PLACEHOLDER TEXT */
@@ -4254,18 +4481,20 @@ body.dark-mode #scrollTopBtn {
 }
 .dark .pricing-item
 {
-	background: #000;
+	background: #1a2840;
+	border: 1px solid rgba(255,255,255,0.07);
 }
 .dark .pricing-item .pi-price {
-  
+
 }
 .dark .pricing-item .pi-text .primary-btn,.dark .pricing-item::after
 {
-background: #000;	
+	background: #009603;
+	color: #fff;
 }
 .dark .pricing-item:hover::after,.dark .pricing-item:hover .primary-btn
 {
-	background: #009603 !important;
+	background: #007a02 !important;
 }
 .dark .blog-details-text .bd-quote,.rtl .blog-details-text .bd-quote
 {
@@ -4338,4 +4567,503 @@ background: #000;
 
 .pdp-item.large-height {
     height: 500px;
+}
+
+/* =====================================================
+   HOME1 & HOME2 REDESIGN
+   ===================================================== */
+
+/* --- HOME1: Hero text — glassmorphism left-bordered box --- */
+.hs-text {
+    background: rgba(0, 0, 0, 0.38) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-left: 5px solid #009603 !important;
+    padding: 38px 48px 38px 36px !important;
+    max-width: 620px;
+    border-radius: 0 10px 10px 0 !important;
+    display: inline-block;
+}
+
+/* --- HOME1: About section slide-in reveal animation --- */
+.home1-about .reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.home1-about .reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+    transition-delay: 0.2s;
+}
+.home1-about .reveal-left.in-view,
+.home1-about .reveal-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- HOME1: Services cards — top bar + left-aligned --- */
+.services-section .services-item {
+    text-align: left !important;
+    padding: 0 0 24px 0 !important;
+    border-top: 4px solid #009603 !important;
+    border-radius: 0 0 10px 10px !important;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.08) !important;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.services-section .services-item:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.14) !important;
+}
+.services-section .services-item img {
+    margin-bottom: 0 !important;
+    transition: transform 0.4s ease !important;
+    width: 100%;
+    display: block;
+}
+.services-section .services-item:hover img {
+    transform: scale(1.05);
+}
+.services-section .services-item h3 {
+    padding: 28px 20px 8px;
+    font-size: 19px;
+    font-weight: 700;
+}
+.services-section .services-item p {
+    padding: 0 20px;
+    line-height: 1.75;
+    font-size: 14px;
+}
+
+/* --- HOME1: Why Choose Us — colored top icon + white body --- */
+.why-item {
+    display: block !important;
+    text-align: center !important;
+    border-left: none !important;
+    border-radius: 12px !important;
+    padding: 0 !important;
+    overflow: hidden;
+    box-shadow: 0 5px 24px rgba(0,0,0,0.09) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    background: #fff;
+    position: relative;
+}
+.why-item:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.14) !important;
+}
+/* Number watermark */
+.why-item::before {
+    content: attr(data-num);
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-size: 52px;
+    font-weight: 700;
+    font-family: "Quantico", sans-serif;
+    color: rgba(255,255,255,0.18);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+}
+.why-item .icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 115px !important;
+    min-width: unset !important;
+    background: #009603 !important;
+    border-radius: 0 !important;
+    font-size: 36px !important;
+    color: #fff !important;
+    margin: 0 !important;
+    flex-shrink: unset !important;
+    box-shadow: none !important;
+    position: relative;
+    z-index: 0;
+}
+.why-item h5 {
+    padding: 20px 16px 8px !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+.why-item p {
+    padding: 0 16px 24px !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+}
+body.dark .why-item {
+    background: #1a2840 !important;
+    border-left: none !important;
+}
+body.dark .why-item .icon {
+    background: #009603 !important;
+}
+
+/* --- HOME1 & PORTFOLIO: Filter control pills --- */
+
+/* Flexbox container — wraps on all screen sizes, works in RTL */
+.filter-controls ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+
+/* Pills */
+.filter-controls ul li {
+    display: inline-flex !important;
+    align-items: center !important;
+    border: 2px solid #009603 !important;
+    border-radius: 25px !important;
+    padding: 6px 20px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Remove the old pipe separator — not needed with pills */
+.filter-controls ul li::after,
+.filter-controls ul li:after {
+    display: none !important;
+    content: none !important;
+}
+
+.filter-controls ul li.active,
+.filter-controls ul li:hover {
+    background: #009603 !important;
+    color: #fff !important;
+    border-color: #009603 !important;
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+    .filter-controls ul {
+        gap: 8px !important;
+    }
+    .filter-controls ul li {
+        padding: 5px 16px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    .filter-controls ul {
+        gap: 8px 6px !important;
+    }
+    .filter-controls ul li {
+        padding: 5px 14px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* 360px */
+@media (max-width: 420px) {
+    .filter-controls ul {
+        gap: 7px 5px !important;
+    }
+    .filter-controls ul li {
+        padding: 4px 12px !important;
+        font-size: 12px !important;
+        border-width: 1.5px !important;
+    }
+}
+
+/* RTL — flex handles direction automatically, just fix text alignment */
+body.rtl .filter-controls ul {
+    direction: rtl !important;
+}
+
+/* Dark mode */
+body.dark .filter-controls ul li {
+    color: #fff !important;
+    border-color: #009603 !important;
+    background: transparent !important;
+}
+body.dark .filter-controls ul li.active,
+body.dark .filter-controls ul li:hover {
+    background: #009603 !important;
+    color: #fff !important;
+}
+
+/* --- HOME2: Hero tag badge --- */
+.hero-tag {
+    display: inline-block;
+    background: rgba(0,150,3,0.12);
+    color: #009603;
+    border: 1px solid rgba(0,150,3,0.3);
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+body.dark .hero-tag {
+    background: rgba(0,150,3,0.18);
+    border-color: rgba(0,150,3,0.4);
+}
+
+/* --- HOME2: Hero image — decorative shape ring --- */
+.home2-hero-img {
+    position: relative;
+}
+.hero-shape {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: rgba(0,150,3,0.07);
+    border: 2px dashed rgba(0,150,3,0.25);
+    top: 50%;
+    left: 50%;
+    transform: translate(-48%, -50%);
+    z-index: 0;
+    pointer-events: none;
+}
+.home2-hero-img img {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- HOME2: About image — offset decorative border --- */
+.home2-about-img {
+    position: relative;
+    margin-top: 14px;
+    margin-left: 14px;
+}
+.home2-about-img::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #009603;
+    border-radius: 12px;
+    z-index: 0;
+    pointer-events: none;
+}
+.home2-about-img img {
+    position: relative;
+    z-index: 1;
+    width: 100% !important;
+    border-radius: 10px !important;
+    display: block;
+}
+
+/* --- HOME2: Process — bottom green bar + watermark step number --- */
+.home2-process .process-box {
+    position: relative;
+    background: #fff;
+    border-radius: 12px !important;
+    padding: 40px 22px 30px !important;
+    border-top: none !important;
+    border-bottom: 4px solid #009603 !important;
+    box-shadow: 0 5px 22px rgba(0,0,0,0.08) !important;
+    overflow: hidden;
+}
+.home2-process .process-box .step-number {
+    position: absolute;
+    bottom: 5px;
+    right: 12px;
+    font-size: 84px;
+    font-weight: 700;
+    font-family: "Quantico", sans-serif;
+    color: rgba(0,150,3,0.07);
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+.home2-process .process-box .icon,
+.home2-process .process-box h5,
+.home2-process .process-box p {
+    position: relative;
+    z-index: 1;
+}
+body.dark .home2-process .process-box {
+    background: #1a2840 !important;
+    box-shadow: none !important;
+}
+
+/* --- HOME2: Pricing — top accent bar per card --- */
+.home2-price-box {
+    border-top: 5px solid #ddd !important;
+    border-left: 1px solid #e0e0e0 !important;
+    border-right: 1px solid #e0e0e0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    border-radius: 10px !important;
+    padding-top: 38px !important;
+}
+.home2-price-box:hover {
+    border-top-color: #009603 !important;
+    border-left-color: rgba(0,150,3,0.4) !important;
+    border-right-color: rgba(0,150,3,0.4) !important;
+    border-bottom-color: rgba(0,150,3,0.4) !important;
+}
+.home2-price-box.active {
+    border-top: 5px solid #009603 !important;
+    border-left: 1px solid #009603 !important;
+    border-right: 1px solid #009603 !important;
+    border-bottom: 1px solid #009603 !important;
+}
+body.dark .home2-price-box {
+    border-top: 5px solid rgba(255,255,255,0.15) !important;
+    border-left: 1px solid rgba(255,255,255,0.07) !important;
+    border-right: 1px solid rgba(255,255,255,0.07) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+}
+body.dark .home2-price-box.active {
+    border-top: 5px solid #009603 !important;
+    border-left: 1px solid #009603 !important;
+    border-right: 1px solid #009603 !important;
+    border-bottom: 1px solid #009603 !important;
+}
+body.dark .home2-price-box:hover {
+    border-top-color: #009603 !important;
+}
+
+/* --- HOME2: Gallery items — rounded + better shadow --- */
+.home2-gallery-item {
+    border-radius: 12px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    overflow: hidden;
+}
+
+/* --- HOME2: Featured cards — rounded --- */
+.home2-card {
+    border-radius: 12px !important;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+/* --- Dark mode: services top bar stays green --- */
+body.dark .services-section .services-item {
+    border-top-color: #009603 !important;
+}
+body.dark .why-item {
+    border-left-color: #009603 !important;
+}
+body.dark .home2-about-img::before {
+    border-color: #009603;
+}
+
+/* --- HOME1: About Us Section --- */
+.home1-about {
+    padding-top: 90px;
+    padding-bottom: 180px;
+    background: #f9f9f9;
+}
+
+.home1-about-img {
+    position: relative;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
+.home1-about-img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    border: 3px solid #009603;
+    border-radius: 12px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.home1-about-img img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.home1-about-text {
+    padding-left: 30px;
+}
+
+.home1-about-text .section-title {
+    margin-bottom: 18px;
+}
+
+.home1-about-text p {
+    line-height: 1.85;
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+.home1-about-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 22px;
+    margin-bottom: 30px;
+}
+
+.hab-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: calc(50% - 10px);
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.hab-item i {
+    color: #009603;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.home1-about-btn {
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home1-about-text {
+        padding-left: 0;
+        margin-top: 50px;
+    }
+    .hab-item {
+        width: 100%;
+    }
+}
+
+/* Dark mode */
+body.dark .home1-about {
+    background: #111d2f;
+}
+body.dark .home1-about-text p {
+    color: #bbb;
+}
+body.dark .hab-item {
+    color: #ddd;
+}
+body.dark .home1-about-img::after {
+    border-color: #009603;
+}
+.rtl .right-btn {
+  text-align: left;
 }

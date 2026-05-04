@@ -1,11 +1,11 @@
 /*  ---------------------------------------------------
-    Template Name: Phozogy
-    Description:  Phozogy photography HTML Template
-    Author: Colorlib
-    Author URI: https://colorlib.com
+    Template Name: Pawprint
+    Description:  Pawprint photography HTML Template
+    Author: Pawprint
+    Author URI: https://Pawprint.com
     Version: 1.0
-    Created: Colorlib
-	---------------------------------------------------------  */
+    Created: Pawprint
+---------------------------------------------------------  */
 
 'use strict';
 

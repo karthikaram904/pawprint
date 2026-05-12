@@ -337,7 +337,7 @@ ol {
 }
 
 .nav-menu {
-	float: right;
+	text-align:center;
 }
 
 .nav-menu ul li {

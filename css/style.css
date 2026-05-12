@@ -5067,3 +5067,23 @@ body.dark .home1-about-img::after {
 .rtl .right-btn {
   text-align: left;
 }
+.hero-btns .primary-btn {
+  padding: 14px 30px !important;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 14px 30px;
+  border: 2px solid #009603;
+  color: #009603;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Quantico", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.hero-btns .primary-btn {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 14px 30px;
+  border: 1px solid #009603;
+}
